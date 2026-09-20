@@ -13,9 +13,9 @@ Try it. The homepage at https://cookie-tab.pages.dev leads with a live invoice o
 
 Both resolve the name against the registry on every open, and read the payments from the chain. A receipt also reads each matching transaction's shape back, so a composed checkout shows as its instruction count behind one signature rather than as a claim.
 
-![Making a link, opening it as the payer, and reading the jar back](docs/demo.gif)
+![The homepage invoice, the confirmed checkout stepped through, the Pay page, a receipt for a payment from a second wallet, and the jar](docs/demo.gif)
 
-Every screen above is the live site at https://cookie-tab.pages.dev reading Cookie Chain, including the notice that the invoice reference has already been settled.
+Every frame above is the live site at https://cookie-tab.pages.dev reading Cookie Chain, captured on 2026-09-20.
 
 ## Making a request and getting paid
 
