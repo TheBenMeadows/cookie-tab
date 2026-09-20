@@ -145,7 +145,9 @@ The same invoice can be settled by an agent instead of a browser, which puts the
 
 `scripts/fund-agent-wallet.ts` prepares that wallet. It buys TRASHCOIN with the bounty payer's COOK if the payer does not already hold enough, then sends the agent a little over one invoice plus the COOK for fees and its token account. `--dry-run` quotes the swap and simulates the transfer without sending either. A wallet holding one invoice cannot pay two, so the balance bounds what a misfired tool call can spend.
 
-Point an MCP client at a cookie-mcp whose `transfer` takes `memo`, give it the pay link, and ask it to pay. The agent decodes the request, pays the amount in the token the request names, and writes `cookiejar:1|<ref>|<note>` into the memo. That reference then answers on the receipt page like any other payment, with the agent's own address in the From column. An agent running the published 0.4.0 moves the money without writing a memo, so its payment does not appear in a jar.
+Point an MCP client at a cookie-mcp whose `transfer` takes `memo`, give it the pay link, and ask it to pay. The agent decodes the request, pays the amount in the token the request names, and writes `cookiejar:1|<ref>|<note>` into the memo. That reference then answers on the receipt page like any other payment, with the payer's own address in the From column. An agent running the published 0.4.0 moves the money without writing a memo, so its payment does not appear in a jar.
+
+The demonstration under `AGENT-DEMO` was sent by `scripts/agent-pay.ts` rather than by an assistant, and the distinction is worth keeping straight. Claude Code's permission classifier refuses an outbound payment from any session under its real-world-transactions rule, so a run that decoded the request, resolved the name and checked the mint's decimals was still denied at the `transfer` call. The script builds the same three instructions and sends them from the same wallet. What the landed payment shows is a payment the recipient did not make, reconciled from its memo alone; it does not show an assistant deciding to pay, and this repository does not claim that.
 
 ## Known limits
 
